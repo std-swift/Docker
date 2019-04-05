@@ -3,6 +3,7 @@ from Version import Version
 class OS:
 	def __init__(self, version: str, name: str, codename: str):
 		self.version = Version(version)
+		self.swiftVersion = self.version
 		self.name = name
 		self.codename = codename
 	
@@ -58,9 +59,12 @@ class Ubuntu(OS):
 Ubuntu1404 = Ubuntu('14.04', 'trusty')
 Ubuntu1604 = Ubuntu('16.04', 'xenial')
 Ubuntu1804 = Ubuntu('18.04', 'bionic')
+Ubuntu1904 = Ubuntu('19.04', 'disco' )
+Ubuntu1904.swiftVersion = Version('18.04')
 
 All = [
 	Ubuntu1404,
 	Ubuntu1604,
 	Ubuntu1804,
+	Ubuntu1904,
 ]

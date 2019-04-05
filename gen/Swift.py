@@ -18,8 +18,8 @@ class Swift:
 		baseURL = 'https://swift.org/builds/swift-{3}-{4}/{0}{2}/swift-{3}-{5}/swift-{3}-{5}-{0}{1}.tar.gz'
 		return baseURL.format(
 			os.name,
-			os.version.toString(2),
-			os.version.toString(2).replace('.', ''),
+			os.swiftVersion.toString(2),
+			os.swiftVersion.toString(2).replace('.', ''),
 			self.version.toString(2),
 			self.suffix,
 			self.flavor,
