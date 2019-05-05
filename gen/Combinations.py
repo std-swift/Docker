@@ -94,4 +94,8 @@ Combinations = [
 	Combination(OS.Ubuntu1404, Swift.Swift500, [], kd1, bd1, dd1),
 	Combination(OS.Ubuntu1604, Swift.Swift500, [], kd1, bd1, dd1),
 	Combination(OS.Ubuntu1804, Swift.Swift500, [], kd1 + ['gnupg2'], bd1 + ['libbsd-dev'], dd1),
+	
+	Combination(OS.Ubuntu1404, Swift.Swift501, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1604, Swift.Swift501, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift501, [], kd1 + ['gnupg2'], bd1 + ['libbsd-dev'], dd1),
 ]

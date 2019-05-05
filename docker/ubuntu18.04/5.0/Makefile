@@ -9,38 +9,14 @@ all:
 
 	docker tag ubuntu18.04-5.0.0-build-squash stdswift/build:ubuntu1804-5.0.0
 	docker tag ubuntu18.04-5.0.0-deploy-squash stdswift/deploy:ubuntu1804-5.0.0
-	docker tag ubuntu18.04-5.0.0-build-squash stdswift/build:ubuntu1804-5.0
-	docker tag ubuntu18.04-5.0.0-deploy-squash stdswift/deploy:ubuntu1804-5.0
-	docker tag ubuntu18.04-5.0.0-build-squash stdswift/build:ubuntu1804-5
-	docker tag ubuntu18.04-5.0.0-deploy-squash stdswift/deploy:ubuntu1804-5
-	docker tag ubuntu18.04-5.0.0-build-squash stdswift/build:ubuntu1804-latest
-	docker tag ubuntu18.04-5.0.0-deploy-squash stdswift/deploy:ubuntu1804-latest
 	docker tag ubuntu18.04-5.0.0-build-squash stdswift/build:bionic-5.0.0
 	docker tag ubuntu18.04-5.0.0-deploy-squash stdswift/deploy:bionic-5.0.0
-	docker tag ubuntu18.04-5.0.0-build-squash stdswift/build:bionic-5.0
-	docker tag ubuntu18.04-5.0.0-deploy-squash stdswift/deploy:bionic-5.0
-	docker tag ubuntu18.04-5.0.0-build-squash stdswift/build:bionic-5
-	docker tag ubuntu18.04-5.0.0-deploy-squash stdswift/deploy:bionic-5
-	docker tag ubuntu18.04-5.0.0-build-squash stdswift/build:bionic-latest
-	docker tag ubuntu18.04-5.0.0-deploy-squash stdswift/deploy:bionic-latest
 
 
 .PHONY: upload
 upload:
 	docker push stdswift/build:ubuntu1804-5.0.0
 	docker push stdswift/deploy:ubuntu1804-5.0.0
-	docker push stdswift/build:ubuntu1804-5.0
-	docker push stdswift/deploy:ubuntu1804-5.0
-	docker push stdswift/build:ubuntu1804-5
-	docker push stdswift/deploy:ubuntu1804-5
-	docker push stdswift/build:ubuntu1804-latest
-	docker push stdswift/deploy:ubuntu1804-latest
 	docker push stdswift/build:bionic-5.0.0
 	docker push stdswift/deploy:bionic-5.0.0
-	docker push stdswift/build:bionic-5.0
-	docker push stdswift/deploy:bionic-5.0
-	docker push stdswift/build:bionic-5
-	docker push stdswift/deploy:bionic-5
-	docker push stdswift/build:bionic-latest
-	docker push stdswift/deploy:bionic-latest
 

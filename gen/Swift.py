@@ -26,8 +26,10 @@ class Swift:
 		)
 
 
-Swift500 = Swift('5.0',   ['5.0', '5', 'latest'])
+Swift500 = Swift('5.0',   [])
+Swift501 = Swift('5.0.1', ['5.0', '5', 'latest'])
 
 All = [
 	Swift500,
+	Swift501,
 ]
