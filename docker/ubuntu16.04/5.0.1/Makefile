@@ -9,38 +9,14 @@ all:
 
 	docker tag ubuntu16.04-5.0.1-build-squash stdswift/build:ubuntu1604-5.0.1
 	docker tag ubuntu16.04-5.0.1-deploy-squash stdswift/deploy:ubuntu1604-5.0.1
-	docker tag ubuntu16.04-5.0.1-build-squash stdswift/build:ubuntu1604-5.0
-	docker tag ubuntu16.04-5.0.1-deploy-squash stdswift/deploy:ubuntu1604-5.0
-	docker tag ubuntu16.04-5.0.1-build-squash stdswift/build:ubuntu1604-5
-	docker tag ubuntu16.04-5.0.1-deploy-squash stdswift/deploy:ubuntu1604-5
-	docker tag ubuntu16.04-5.0.1-build-squash stdswift/build:ubuntu1604-latest
-	docker tag ubuntu16.04-5.0.1-deploy-squash stdswift/deploy:ubuntu1604-latest
 	docker tag ubuntu16.04-5.0.1-build-squash stdswift/build:xenial-5.0.1
 	docker tag ubuntu16.04-5.0.1-deploy-squash stdswift/deploy:xenial-5.0.1
-	docker tag ubuntu16.04-5.0.1-build-squash stdswift/build:xenial-5.0
-	docker tag ubuntu16.04-5.0.1-deploy-squash stdswift/deploy:xenial-5.0
-	docker tag ubuntu16.04-5.0.1-build-squash stdswift/build:xenial-5
-	docker tag ubuntu16.04-5.0.1-deploy-squash stdswift/deploy:xenial-5
-	docker tag ubuntu16.04-5.0.1-build-squash stdswift/build:xenial-latest
-	docker tag ubuntu16.04-5.0.1-deploy-squash stdswift/deploy:xenial-latest
 
 
 .PHONY: upload
 upload:
 	docker push stdswift/build:ubuntu1604-5.0.1
 	docker push stdswift/deploy:ubuntu1604-5.0.1
-	docker push stdswift/build:ubuntu1604-5.0
-	docker push stdswift/deploy:ubuntu1604-5.0
-	docker push stdswift/build:ubuntu1604-5
-	docker push stdswift/deploy:ubuntu1604-5
-	docker push stdswift/build:ubuntu1604-latest
-	docker push stdswift/deploy:ubuntu1604-latest
 	docker push stdswift/build:xenial-5.0.1
 	docker push stdswift/deploy:xenial-5.0.1
-	docker push stdswift/build:xenial-5.0
-	docker push stdswift/deploy:xenial-5.0
-	docker push stdswift/build:xenial-5
-	docker push stdswift/deploy:xenial-5
-	docker push stdswift/build:xenial-latest
-	docker push stdswift/deploy:xenial-latest
 
