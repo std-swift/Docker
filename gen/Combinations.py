@@ -102,4 +102,12 @@ Combinations = [
 	Combination(OS.Ubuntu1404, Swift.Swift502, [], kd1, bd1, dd1),
 	Combination(OS.Ubuntu1604, Swift.Swift502, [], kd1, bd1, dd1),
 	Combination(OS.Ubuntu1804, Swift.Swift502, [], kd1 + ['gnupg2'], bd1 + ['libbsd-dev'], dd1),
+	
+	Combination(OS.Ubuntu1404, Swift.Swift503, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1604, Swift.Swift503, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift503, [], kd1 + ['gnupg2'], bd1 + ['libbsd-dev'], dd1),
+	
+	Combination(OS.Ubuntu1404, Swift.Swift510, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1604, Swift.Swift510, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift510, [], kd1 + ['gnupg2'], bd1 + ['libbsd-dev'], dd1),
 ]
