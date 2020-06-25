@@ -76,6 +76,9 @@ kd1 = [
 	'wget',
 	'ca-certificates',
 ]
+kd2 = kd1 + [
+	'gnupg2'
+]
 
 bd1 = [
 	'git',
@@ -85,6 +88,9 @@ bd1 = [
 	'libxml2',
 	'libcurl4-openssl-dev',
 ]
+bd2 = bd1 + [
+	'libbsd-dev'
+]
 
 dd1 = [
 	'libatomic1',
@@ -93,21 +99,57 @@ dd1 = [
 Combinations = [
 	Combination(OS.Ubuntu1404, Swift.Swift500, [], kd1, bd1, dd1),
 	Combination(OS.Ubuntu1604, Swift.Swift500, [], kd1, bd1, dd1),
-	Combination(OS.Ubuntu1804, Swift.Swift500, [], kd1 + ['gnupg2'], bd1 + ['libbsd-dev'], dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift500, [], kd2, bd2, dd1),
 	
 	Combination(OS.Ubuntu1404, Swift.Swift501, [], kd1, bd1, dd1),
 	Combination(OS.Ubuntu1604, Swift.Swift501, [], kd1, bd1, dd1),
-	Combination(OS.Ubuntu1804, Swift.Swift501, [], kd1 + ['gnupg2'], bd1 + ['libbsd-dev'], dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift501, [], kd2, bd2, dd1),
 	
 	Combination(OS.Ubuntu1404, Swift.Swift502, [], kd1, bd1, dd1),
 	Combination(OS.Ubuntu1604, Swift.Swift502, [], kd1, bd1, dd1),
-	Combination(OS.Ubuntu1804, Swift.Swift502, [], kd1 + ['gnupg2'], bd1 + ['libbsd-dev'], dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift502, [], kd2, bd2, dd1),
 	
 	Combination(OS.Ubuntu1404, Swift.Swift503, [], kd1, bd1, dd1),
 	Combination(OS.Ubuntu1604, Swift.Swift503, [], kd1, bd1, dd1),
-	Combination(OS.Ubuntu1804, Swift.Swift503, [], kd1 + ['gnupg2'], bd1 + ['libbsd-dev'], dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift503, [], kd2, bd2, dd1),
 	
 	Combination(OS.Ubuntu1404, Swift.Swift510, [], kd1, bd1, dd1),
 	Combination(OS.Ubuntu1604, Swift.Swift510, [], kd1, bd1, dd1),
-	Combination(OS.Ubuntu1804, Swift.Swift510, [], kd1 + ['gnupg2'], bd1 + ['libbsd-dev'], dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift510, [], kd2, bd2, dd1),
+	
+	Combination(OS.Ubuntu1404, Swift.Swift511, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1604, Swift.Swift511, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift511, [], kd2, bd2, dd1),
+	
+	Combination(OS.Ubuntu1404, Swift.Swift512, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1604, Swift.Swift512, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift512, [], kd2, bd2, dd1),
+	
+	Combination(OS.Ubuntu1404, Swift.Swift513, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1604, Swift.Swift513, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift513, [], kd2, bd2, dd1),
+	
+	Combination(OS.Ubuntu1404, Swift.Swift514, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1604, Swift.Swift514, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift514, [], kd2, bd2, dd1),
+	
+	Combination(OS.Ubuntu1404, Swift.Swift515, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1604, Swift.Swift515, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift515, [], kd2, bd2, dd1),
+
+	Combination(OS.Ubuntu1604, Swift.Swift520, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift520, [], kd2, bd2, dd1),
+	
+	Combination(OS.Ubuntu1604, Swift.Swift521, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift521, [], kd2, bd2, dd1),
+	
+	Combination(OS.Ubuntu1604, Swift.Swift522, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift522, [], kd2, bd2, dd1),
+	
+	Combination(OS.Ubuntu1604, Swift.Swift523, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift523, [], kd2, bd2, dd1),
+	
+	Combination(OS.Ubuntu1604, Swift.Swift524, [], kd1, bd1, dd1),
+	Combination(OS.Ubuntu1804, Swift.Swift524, [], kd2, bd2, dd1),
+	Combination(OS.Ubuntu2004, Swift.Swift524, [], kd2, bd2 + ['libedit-dev', 'libz3-4'], dd1),
 ]

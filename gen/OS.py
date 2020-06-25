@@ -58,9 +58,11 @@ class Ubuntu(OS):
 Ubuntu1404 = Ubuntu('14.04', 'trusty')
 Ubuntu1604 = Ubuntu('16.04', 'xenial')
 Ubuntu1804 = Ubuntu('18.04', 'bionic')
+Ubuntu2004 = Ubuntu('20.04', 'focal')
 
 All = [
 	Ubuntu1404,
 	Ubuntu1604,
 	Ubuntu1804,
+	Ubuntu2004,
 ]
