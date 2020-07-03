@@ -20,13 +20,6 @@ class Combination:
 				.format(target, self.GetDevTag(target))
 		return commands
 	
-	def DockerSquashCommands(self) -> str:
-		commands = ''
-		for target in self.targets:
-			commands += '\tdocker-squash -t {0} {1}\n' \
-				.format(self.GetSquashTag(target), self.GetDevTag(target))
-		return commands
-	
 	def DockerTagCommands(self) -> str:
 		_os = self.os.OSTags()
 		_swift = self.swift.swiftTags + self.extraTags
@@ -35,7 +28,7 @@ class Combination:
 		for (os, swift, target) in itertools.product(_os, _swift, _targets):
 			commands += '\tdocker tag {0} stdswift/{1}:{2}-{3}\n' \
 				.format(
-					self.GetSquashTag(target),
+					self.GetDevTag(target),
 					target.lower(),
 					os,
 					swift,
@@ -64,13 +57,6 @@ class Combination:
 			target.lower(),
 		)
 
-	def GetSquashTag(self, target: str) -> str:
-		return '{0}{1}-{2}-{3}-squash'.format(
-			self.os.name,
-			self.os.version.String(),
-			self.swift.version.toString(3),
-			target.lower(),
-		)
 
 kd1 = [
 	'wget',

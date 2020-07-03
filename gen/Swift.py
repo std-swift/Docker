@@ -43,19 +43,7 @@ Swift523 = Swift('5.2.3', [])
 Swift524 = Swift('5.2.4', ['5.2', '5', 'latest'])
 
 All = [
-	Swift500,
-	Swift501,
-	Swift502,
-	Swift503,
-	Swift510,
-	Swift511,
-	Swift512,
-	Swift513,
-	Swift514,
-	Swift515,
-	Swift520,
-	Swift521,
-	Swift522,
-	Swift523,
-	Swift524,
+	Swift500, Swift501, Swift502, Swift503,
+	Swift510, Swift511, Swift512, Swift513, Swift514, Swift515,
+	Swift520, Swift521, Swift522, Swift523, Swift524,
 ]

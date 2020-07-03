@@ -23,15 +23,12 @@ for combination in Combinations:
 	docker = dockerTemplates[os.name]
 	
 	docker = docker.replace('{OS.Version}', os.version.toString(2))
-	docker = docker.replace('{OS.Cleanup}', os.DockerCleanup())
 	docker = docker.replace('{OS.Requirements.Key}', os.DockerInstall(combination.keyDependencies))
-	docker = docker.replace('{OS.Requirements.Key.Cleanup}', os.DockerUnintall(combination.keyDependencies))
 	docker = docker.replace('{OS.Requirements.Build}', os.DockerInstall(combination.buildDependencies))
 	docker = docker.replace('{OS.Requirements.Deploy}', os.DockerInstall(combination.deployDependencies))
 	docker = docker.replace('{Swift.URL}', swift.URL(os))
 	
 	make = make.replace('{Docker.Commands.Build}', combination.DockerBuildCommands())
-	make = make.replace('{Docker.Commands.Squash}', combination.DockerSquashCommands())
 	make = make.replace('{Docker.Commands.Tag}', combination.DockerTagCommands())
 	make = make.replace('{Docker.Commands.Push}', combination.DockerPushCommands())
 	

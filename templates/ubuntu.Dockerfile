@@ -1,4 +1,4 @@
-FROM ubuntu:{OS.Version} AS Base
+FROM ubuntu:{OS.Version} AS Swift
 	WORKDIR /tmp/
 	ARG DEBIAN_FRONTEND=noninteractive
 	ARG APT="apt-get -qq --no-install-recommends"
@@ -9,51 +9,61 @@ FROM ubuntu:{OS.Version} AS Base
 		then \
 			sed -i -r 's/(archive|security).ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list; \
 		fi; \
-		$APT update
+		$APT update; \
+{OS.Requirements.Key}		$APT autoremove; \
+		$APT clean; \
+		rm -rf /var/lib/apt/lists/*
 	
-	# Remove these later
-{OS.Requirements.Key}
 	# Download Swift keys
 	RUN mkdir -p -m 500 /tmp/gnupg
 	RUN wget -q -O - https://swift.org/keys/all-keys.asc \
 		| GNUPGHOME=/tmp/gnupg gpg --import -
-
-
-
-
-
-FROM Base AS SwiftBuild
-	WORKDIR /
-	ARG DEBIAN_FRONTEND=noninteractive
-	ARG APT="apt-get -qq --no-install-recommends"
 	
-{OS.Requirements.Build}
+	# Download Swift and check the signature
 	RUN wget -q "{Swift.URL}" -O swift.tar.gz
 	RUN wget -q "{Swift.URL}.sig" -O swift.tar.gz.sig
 	RUN GNUPGHOME=/tmp/gnupg gpg --batch --verify --quiet swift.tar.gz.sig swift.tar.gz
-	RUN tar xzf swift.tar.gz --directory / --strip-components=1
-	
-	# Remove
-{OS.Requirements.Key.Cleanup}
-	# Cleanup
-{OS.Cleanup}
+	RUN mkdir /swift && tar xzf swift.tar.gz --directory /swift --strip-components=1
 
 
 
 
 
-FROM Base AS SwiftDeploy
+FROM ubuntu:{OS.Version} AS SwiftBuild
 	WORKDIR /
 	ARG DEBIAN_FRONTEND=noninteractive
 	ARG APT="apt-get -qq --no-install-recommends"
 	
-{OS.Requirements.Deploy}
-	COPY --from=SwiftBuild /usr/lib/swift/linux /usr/lib/swift/linux	
+	RUN $APT update; \
+		if [ $? -eq 100 ]; \
+		then \
+			sed -i -r 's/(archive|security).ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list; \
+		fi; \
+		$APT update; \
+{OS.Requirements.Build}		$APT autoremove; \
+		$APT clean; \
+		rm -rf /var/lib/apt/lists/*
+	COPY --from=Swift /swift /
+
+
+
+
+
+FROM ubuntu:{OS.Version} AS SwiftDeploy
+	WORKDIR /
+	ARG DEBIAN_FRONTEND=noninteractive
+	ARG APT="apt-get -qq --no-install-recommends"
 	
-	# Remove
-{OS.Requirements.Key.Cleanup}
-	# Cleanup
-{OS.Cleanup}
+	RUN $APT update; \
+		if [ $? -eq 100 ]; \
+		then \
+			sed -i -r 's/(archive|security).ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list; \
+		fi; \
+		$APT update; \
+{OS.Requirements.Deploy}		$APT autoremove; \
+		$APT clean; \
+		rm -rf /var/lib/apt/lists/*
+	COPY --from=SwiftBuild /usr/lib/swift/linux /usr/lib/swift/linux
 
 
 

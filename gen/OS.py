@@ -16,7 +16,7 @@ class OS:
 		raise NotImplementedError
 	
 	def DockerRUN(self, command: str) -> str:
-		return '\tRUN {} >/dev/null\n'.format(command)
+		return '\t\t{} >/dev/null; \\\n'.format(command)
 	
 	def DockerInstall(self, dependencies: list) -> str:
 		commands = ''
@@ -45,14 +45,6 @@ class Ubuntu(OS):
 	
 	def UninstallCommand(self, dependency) -> str:
 		return '$APT remove {}'.format(dependency)
-	
-	def DockerCleanup(self) -> str:
-		commands = ''
-		commands += self.DockerRUN('$APT autoremove')
-		commands += self.DockerRUN('$APT clean')
-		commands += self.DockerRUN('rm -rf /var/lib/apt/lists/*')
-		commands += self.DockerRUN('rm -rf /tmp/*')
-		return commands
 
 
 Ubuntu1404 = Ubuntu('14.04', 'trusty')

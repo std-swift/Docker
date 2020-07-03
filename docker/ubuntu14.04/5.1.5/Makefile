@@ -4,21 +4,18 @@ all:
 	docker build --target SwiftBuild --tag ubuntu14.04-5.1.5-build-dev .
 	docker build --target SwiftDeploy --tag ubuntu14.04-5.1.5-deploy-dev .
 
-	docker-squash -t ubuntu14.04-5.1.5-build-squash ubuntu14.04-5.1.5-build-dev
-	docker-squash -t ubuntu14.04-5.1.5-deploy-squash ubuntu14.04-5.1.5-deploy-dev
-
-	docker tag ubuntu14.04-5.1.5-build-squash stdswift/build:ubuntu1404-5.1.5
-	docker tag ubuntu14.04-5.1.5-deploy-squash stdswift/deploy:ubuntu1404-5.1.5
-	docker tag ubuntu14.04-5.1.5-build-squash stdswift/build:ubuntu1404-5.1
-	docker tag ubuntu14.04-5.1.5-deploy-squash stdswift/deploy:ubuntu1404-5.1
-	docker tag ubuntu14.04-5.1.5-build-squash stdswift/build:trusty-5.1.5
-	docker tag ubuntu14.04-5.1.5-deploy-squash stdswift/deploy:trusty-5.1.5
-	docker tag ubuntu14.04-5.1.5-build-squash stdswift/build:trusty-5.1
-	docker tag ubuntu14.04-5.1.5-deploy-squash stdswift/deploy:trusty-5.1
-
 
 .PHONY: upload
 upload:
+	docker tag ubuntu14.04-5.1.5-build-dev stdswift/build:ubuntu1404-5.1.5
+	docker tag ubuntu14.04-5.1.5-deploy-dev stdswift/deploy:ubuntu1404-5.1.5
+	docker tag ubuntu14.04-5.1.5-build-dev stdswift/build:ubuntu1404-5.1
+	docker tag ubuntu14.04-5.1.5-deploy-dev stdswift/deploy:ubuntu1404-5.1
+	docker tag ubuntu14.04-5.1.5-build-dev stdswift/build:trusty-5.1.5
+	docker tag ubuntu14.04-5.1.5-deploy-dev stdswift/deploy:trusty-5.1.5
+	docker tag ubuntu14.04-5.1.5-build-dev stdswift/build:trusty-5.1
+	docker tag ubuntu14.04-5.1.5-deploy-dev stdswift/deploy:trusty-5.1
+
 	docker push stdswift/build:ubuntu1404-5.1.5
 	docker push stdswift/deploy:ubuntu1404-5.1.5
 	docker push stdswift/build:ubuntu1404-5.1
