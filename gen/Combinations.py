@@ -67,6 +67,7 @@ kd2 = kd1 + [
 ]
 
 bd1 = [
+	'ca-certificates',
 	'git',
 	'clang',
 	'binutils',

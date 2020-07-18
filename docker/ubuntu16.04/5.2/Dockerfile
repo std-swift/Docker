@@ -42,6 +42,7 @@ FROM ubuntu:16.04 AS SwiftBuild
 			sed -i -r 's/(archive|security).ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list; \
 		fi; \
 		$APT update; \
+		$APT install ca-certificates >/dev/null; \
 		$APT install git >/dev/null; \
 		$APT install clang >/dev/null; \
 		$APT install binutils >/dev/null; \
